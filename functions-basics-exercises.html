@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Functiosn</title>
+    </head>
+
+    <body>
+
+        <input class="textBox" type="text" />
+    <div class="animaloutput"></div>
+
+        <script>
+
+
+            function multiplier(num = (Math.random() * 10)) {
+                // return num.toFixed(2);
+                return num * 4;
+            }
+            
+            function additioner(num = (Math.random() * 10)) {
+                return num + 100;
+        
+            }
+
+            // exercises
+
+            function checkAge(age) {
+                return (age > 18) ?  "true"  : confirm("Did your parents allow you?");
+            }
+
+            function checkAge(age) {
+                return (age > 18) || confirm("Did your parents allow you?")
+            }
+
+            // arrow function
+
+            let ask = (question, yes, no) => {
+                if (confirm(question)) yes();
+                else no()
+            }
+            
+        </script>
+    </body>
+
+
+
+</html>
