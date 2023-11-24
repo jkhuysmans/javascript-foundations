@@ -8,18 +8,23 @@ console.log("Hello world")
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3) + 1;
     let computerChoice= "";
-    console.log(randomNumber);
     
     if (randomNumber === 1) {
-        computerChoice = "Rock";
+        computerChoice = "rock";
     } else if (randomNumber === 2) {
-        computerChoice = "Paper";
+        computerChoice = "paper";
     } else {
-        computerChoice = "Scissors";
+        computerChoice = "scissors";
     }
-    console.log(computerChoice)
-    
+    return computerChoice;
 }
 
-getComputerChoice()
-
+    let playerSelection = prompt("Please choose between Rock, Paper and Scissors")
+    playerSelection = playerSelection.toLowerCase()
+    console.log(playerSelection)
+    let computerSelection = getComputerChoice()
+    console.log(computerSelection) 
+       
+    function round() {
+        
+    }
