@@ -29,37 +29,37 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection == "scissors" && computerSelection == "rock")) {
         
         computerPoints++
-        return "You lose!"
+        return "You lose!";
     } else if ((playerSelection == "scissors" && computerSelection == "paper") ||
     (playerSelection == "paper" && computerSelection == "rock") ||
     (playerSelection == "rock" && computerSelection == "scissors")) {
         playerPoints++
-        return "You win!"
+        return "You win!";
     } else {
-        return "Its a tie!"
+        return "Its a tie!";
     }
 }
 
     function fiveRounds() {
         const totalRounds = 5;
         for (let i = 1; i <= totalRounds; i++) {
-            let playerSelection = prompt("Please choose between Rock, Paper and Scissors")
-            playerSelection = playerSelection.toLowerCase()
-            let computerSelection = getComputerChoice()
-            console.log(playRound(playerSelection, computerSelection))
+            let playerSelection = prompt("Please choose between Rock, Paper and Scissors");
+            playerSelection = playerSelection.toLowerCase();
+            let computerSelection = getComputerChoice();
+            console.log(playRound(playerSelection, computerSelection));
         }
         if (totalRounds === 5) {
-            console.log(Winner(playerPoints,computerPoints))
+            console.log(Winner(playerPoints,computerPoints));
         }
      }
 
      function Winner() {
         if (playerPoints < computerPoints) {
-            return(`You lost at ${playerPoints} to ${computerPoints}`)
+            return(`You lost at ${playerPoints} to ${computerPoints}`);
         } else if (playerPoints === computerPoints) {
-            return("Players are even")
+            return("Players are even");
         } else if (playerPoints > computerPoints) {
-            return(`You win at ${playerPoints} to ${computerPoints}`)
+            return(`You win at ${playerPoints} to ${computerPoints}`);
         }
      }
 
