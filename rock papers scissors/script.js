@@ -1,4 +1,3 @@
-console.log("Hello world")
 
 //Pseudocode:
 //SET getComputerChoice to randomly return 'Rock', 'Paper' or 'Scissors'
@@ -46,6 +45,5 @@ function playRound(playerSelection, computerSelection) {
 
      fiveRounds()
 
-     // console.log(playRound(playerSelection, computerSelection))
        
     
