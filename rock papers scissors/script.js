@@ -19,12 +19,23 @@ function getComputerChoice() {
     return computerChoice;
 }
 
+function playRound(playerSelection, computerSelection) {
+    if ((playerSelection == "paper" && computerSelection == "scissors") ||
+    (playerSelection == "rock" && computerSelection == "paper") ||
+    (playerSelection == "scissors" && computerSelection == "rock")) {
+        return "You lose!"
+    } else if ((playerSelection == "scissors" && computerSelection == "paper") ||
+    (playerSelection == "paper" && computerSelection == "rock") ||
+    (playerSelection == "rock" && computerSelection == "scissors")) {
+        return "You win!"
+    } else {
+        return "Its a tie!"
+    }
+}
+
     let playerSelection = prompt("Please choose between Rock, Paper and Scissors")
     playerSelection = playerSelection.toLowerCase()
-    console.log(playerSelection)
     let computerSelection = getComputerChoice()
-    console.log(computerSelection) 
+    console.log(playRound(playerSelection, computerSelection))
        
-    function round() {
-        
-    }
+    
