@@ -3,28 +3,56 @@
 } */
 
 
-body {
-    background-color:azure;
-}
+body,
+p {
+    margin:0;
+    padding:0;
+} 
+
 #title {
     display:flex;
     justify-content:center;
     font-family:Arial, Helvetica, sans-serif;
-    
+    margin:0;
+    margin-bottom:32px;
+    padding:32px;
+    background-color:aquamarine;
+
 }
 
 .buttonsContainer {
     display:flex;
     flex-direction:row;
+    gap:20px;
     justify-content:center;
-    gap:80px;
-    margin:0px 200px 0px 200px;
+    margin: 0 auto;
+    margin-bottom:32px;
 }
 
 .gamebuttons {
-    padding:100px;
+    padding:80px;
     border:4px solid darkblue;
     border-radius:8px;
-    
-    
+}
+
+.score {
+    display:flex;
+    gap:24px;
+    justify-content:center;
+    margin-left:-14px;
+    font-size:18px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.para {
+    margin:4px 0px 4px 0px;
+}
+
+.choice {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    font-size:18px;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-bottom:32px;
 }
