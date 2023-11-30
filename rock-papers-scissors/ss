@@ -1,0 +1,36 @@
+ function fiveRounds() {
+        const totalRounds = 5;
+        for (let i = 1; i <= totalRounds; i++) {
+            let playerSelection = prompt("Please choose between Rock, Paper and Scissors");
+            playerSelection = playerSelection.toLowerCase();
+            let computerSelection = getComputerChoice();
+            console.log(playRound(playerSelection, computerSelection));
+        }
+        if (totalRounds === 5) {
+            console.log(Winner(playerPoints,computerPoints));
+        }
+     }
+
+     function Winner() {
+        if (playerPoints < computerPoints) {
+            return(`You lost at ${playerPoints} to ${computerPoints}`);
+        } else if (playerPoints === computerPoints) {
+            return("Players are even");
+        } else if (playerPoints > computerPoints) {
+            return(`You win at ${playerPoints} to ${computerPoints}`);
+        }
+     }
+
+     fiveRounds()
+
+
+     ///
+
+
+     const buttons = ["Rock", "Paper", "Scissors"];
+
+buttons.forEach(buttonText => {
+    const button = document.createElement("button");
+    button.textContent = buttonText;
+    buttonsContainer.appendChild(button);
+});
