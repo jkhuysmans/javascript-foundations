@@ -47,3 +47,31 @@ function displayChoice(playerSelection, computerSelection) {
     choiceHeader.appendChild(userChoice);
     choiceHeader.appendChild(computerChoice);
 }
+
+//
+
+function displayLoss(playerSelection, computerSelection) {
+    let paragraph = document.createElement("p");
+    paragraph.textContent = `You lose! Your ${playerSelection.toLowerCase()}
+    is beaten by ${computerSelection.toLowerCase()}!`
+
+    let choiceHeader = document.querySelector(".choice");
+    choiceHeader.appendChild(paragraph);
+}
+
+function displayWin(playerSelection, computerSelection) {
+    let paragraph = document.createElement("p");
+    paragraph.textContent = `You win! Your ${playerSelection.toLowerCase()}
+    beats ${computerSelection.toLowerCase()}!`
+
+    let choiceHeader = document.querySelector(".choice");
+    choiceHeader.appendChild(paragraph);
+}
+
+function displayTie(playerSelection, computerSelection) {
+    let paragraph = document.createElement("p");
+    paragraph.textContent = `It's a tie! You both chose ${playerSelection.toLowerCase()}!`
+
+    let choiceHeader = document.querySelector(".choice");
+    choiceHeader.appendChild(paragraph);
+}

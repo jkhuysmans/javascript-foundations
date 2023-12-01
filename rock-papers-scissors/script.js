@@ -8,10 +8,16 @@
 
 let playerPoints = 0;
 let computerPoints = 0;
+let targetPoints = 5;
+
+let selection = "";
+let computerChoice= "";
+let playerSelection = "";
+let computerSelection = "";
+
 
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3) + 1;
-    let computerChoice= "";
     
     if (randomNumber === 1) {
         computerChoice = "Rock";
@@ -29,9 +35,6 @@ function getComputerChoice() {
 const inputRock = document.querySelector("#rock")
 const inputPaper = document.querySelector("#paper")
 const inputScissors = document.querySelector("#scissors")
-    
-let selection = ""
-let playerSelection = ""
 
 inputRock.addEventListener("click", () => {
     playerSelection = "Rock";
@@ -49,7 +52,7 @@ inputScissors.addEventListener("click", () => {
 });
 
 function playGame(playerSelection) {
-    const computerSelection = getComputerChoice(); // Get computer's choice
+    computerSelection = getComputerChoice(); // Get computer's choice
     playRound(playerSelection, computerSelection); // Call playRound with both choices
     // displayChoice(playerSelection, computerSelection) // Call choices
 }
@@ -61,50 +64,71 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection == "Rock" && computerSelection == "Paper") ||
     (playerSelection == "Scissors" && computerSelection == "Rock")) {
         
-        // computerPoints++
-        displayLoss(playerSelection, computerSelection);
+        computerPoints++
+        result = "Loss"
         console.log("You lose!");
     } else if ((playerSelection == "Scissors" && computerSelection == "Paper") ||
     (playerSelection == "Paper" && computerSelection == "Rock") ||
     (playerSelection == "Rock" && computerSelection == "Scissors")) {
-        //playerPoints++
-        displayWin(playerSelection, computerSelection);
+        playerPoints++
+        result = "Win"
         console.log("You win!");
     } else {
-        displayTie(playerSelection, computerSelection);
+        result = "Tie"
         console.log("It's a tie!");
     }
-    display()
+    display(playerSelection, computerSelection, result)
 }
 
 // Show choice
 
-
-function displayLoss(playerSelection, computerSelection) {
+ function display(playerSelection, computerSelection, result) {
     let paragraph = document.createElement("p");
-    paragraph.textContent = `You lose! Your ${playerSelection.toLowerCase()}
-    is beaten by ${computerSelection.toLowerCase()}!`
+    if (result == "Loss") {
+        paragraph.textContent = `You lose! Your ${playerSelection.toLowerCase()}
+    is beaten by ${computerSelection.toLowerCase()}!`;
+
+    } else if (result == "Win") {
+        paragraph.textContent = `You win! Your ${playerSelection.toLowerCase()}
+    beats ${computerSelection.toLowerCase()}!`;
+
+    } else if (result == "Tie") {
+        paragraph.textContent = `It's a tie! You both chose ${playerSelection.toLowerCase()}!`
+
+    }
 
     let choiceHeader = document.querySelector(".choice");
     choiceHeader.appendChild(paragraph);
+} 
+
+function fiveRounds() {
+    if (playerPoints == targetPoints || computerPoints == targetPoints) {
+        totalWinner()
+    } else {
+        playRound(playerSelection, computerSelection);
+    }
 }
 
-function displayWin(playerSelection, computerSelection) {
-    let paragraph = document.createElement("p");
-    paragraph.textContent = `You win! Your ${playerSelection.toLowerCase()}
-    beats ${computerSelection.toLowerCase()}!`
+ function totalWinner() {
+    let showWinner = document.querySelector("#scoreNumber")
+    let winnerText = document.createElement("p")
 
-    let choiceHeader = document.querySelector(".choice");
-    choiceHeader.appendChild(paragraph);
+   if (playerPoints > computerPoints) {
+    winnerText.textContent = `You win at ${playerPoints} to ${computerPoints}!`
+    showWinner.appendChild(winnerText)
+   } else if (computerPoints > playerPoints) {
+    winnerText.textContent = `You lose at ${playerPoints} to ${computerPoints}!`
+    showWinner.appendChild(winnerText)
+   } 
+
 }
 
-function displayTie(playerSelection, computerSelection) {
-    let paragraph = document.createElement("p");
-    paragraph.textContent = `It's a tie! You both chose ${playerSelection.toLowerCase()}!`
+fiveRounds()
 
-    let choiceHeader = document.querySelector(".choice");
-    choiceHeader.appendChild(paragraph);
+
+
+function displayScore() {
+    let scoreNumber = document.querySelector(".scoreNumber")
+    
 }
-
- 
 
