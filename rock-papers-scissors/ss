@@ -34,3 +34,16 @@ buttons.forEach(buttonText => {
     button.textContent = buttonText;
     buttonsContainer.appendChild(button);
 });
+
+//
+
+function displayChoice(playerSelection, computerSelection) {
+    let userChoice = document.createElement("p");
+    userChoice.textContent = `You have chosen: ${playerSelection.toLowerCase()}`;
+    let computerChoice = document.createElement("p");
+    computerChoice.textContent = `The computer has chosen: ${computerSelection.toLowerCase()}`;
+
+    let choiceHeader = document.querySelector(".choice");
+    choiceHeader.appendChild(userChoice);
+    choiceHeader.appendChild(computerChoice);
+}

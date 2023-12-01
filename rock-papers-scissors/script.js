@@ -24,17 +24,6 @@ function getComputerChoice() {
 }
 
 
-// Show choice
-
-/* function displayChoice() {
-    let userParagraph = document.createElement("p")
-    let choiceHeader = document.querySelector(".choice")
-    userParagraph.textContent = `You have chosen %{userChoice}`
-    choiceHeader.appendChild(userChoice);
-}
-       
-displayChoice() */
-
 // Button selection
 
 const inputRock = document.querySelector("#rock")
@@ -62,28 +51,60 @@ inputScissors.addEventListener("click", () => {
 function playGame(playerSelection) {
     const computerSelection = getComputerChoice(); // Get computer's choice
     playRound(playerSelection, computerSelection); // Call playRound with both choices
+    // displayChoice(playerSelection, computerSelection) // Call choices
 }
+
+let result = "";
 
 function playRound(playerSelection, computerSelection) {
     if ((playerSelection == "Paper" && computerSelection == "Scissors") ||
     (playerSelection == "Rock" && computerSelection == "Paper") ||
     (playerSelection == "Scissors" && computerSelection == "Rock")) {
         
-        computerPoints++
-        //return "You lose!"
+        // computerPoints++
+        displayLoss(playerSelection, computerSelection);
         console.log("You lose!");
     } else if ((playerSelection == "Scissors" && computerSelection == "Paper") ||
     (playerSelection == "Paper" && computerSelection == "Rock") ||
     (playerSelection == "Rock" && computerSelection == "Scissors")) {
         //playerPoints++
-        //return "You win!";
+        displayWin(playerSelection, computerSelection);
         console.log("You win!");
     } else {
-        //return "Its a tie!";
+        displayTie(playerSelection, computerSelection);
         console.log("It's a tie!");
     }
+    display()
+}
+
+// Show choice
+
+
+function displayLoss(playerSelection, computerSelection) {
+    let paragraph = document.createElement("p");
+    paragraph.textContent = `You lose! Your ${playerSelection.toLowerCase()}
+    is beaten by ${computerSelection.toLowerCase()}!`
+
+    let choiceHeader = document.querySelector(".choice");
+    choiceHeader.appendChild(paragraph);
+}
+
+function displayWin(playerSelection, computerSelection) {
+    let paragraph = document.createElement("p");
+    paragraph.textContent = `You win! Your ${playerSelection.toLowerCase()}
+    beats ${computerSelection.toLowerCase()}!`
+
+    let choiceHeader = document.querySelector(".choice");
+    choiceHeader.appendChild(paragraph);
+}
+
+function displayTie(playerSelection, computerSelection) {
+    let paragraph = document.createElement("p");
+    paragraph.textContent = `It's a tie! You both chose ${playerSelection.toLowerCase()}!`
+
+    let choiceHeader = document.querySelector(".choice");
+    choiceHeader.appendChild(paragraph);
 }
 
  
-
 
