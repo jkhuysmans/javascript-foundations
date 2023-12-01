@@ -23,15 +23,13 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-const buttonsContainer = document.querySelector('.buttons');
-
 function playRound(playerSelection, computerSelection) {
     if ((playerSelection == "paper" && computerSelection == "scissors") ||
     (playerSelection == "rock" && computerSelection == "paper") ||
     (playerSelection == "scissors" && computerSelection == "rock")) {
         
         computerPoints++
-        return "You lose!";
+        return "You lose!"
     } else if ((playerSelection == "scissors" && computerSelection == "paper") ||
     (playerSelection == "paper" && computerSelection == "rock") ||
     (playerSelection == "rock" && computerSelection == "scissors")) {
@@ -43,6 +41,43 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
+// Show choice
 
+/* function displayChoice() {
+    let userParagraph = document.createElement("p")
+    let choiceHeader = document.querySelector(".choice")
+    userParagraph.textContent = `You have chosen %{userChoice}`
+    choiceHeader.appendChild(userChoice);
+}
        
+displayChoice() */
+
+// Button selection
+
+const inputRock = document.querySelector("#rock")
+const inputPaper = document.querySelector("#paper")
+const inputScissors = document.querySelector("#scissors")
     
+let selection = ""
+let playerSelection = ""
+
+inputRock.addEventListener("click", () => {
+    playerSelection = "Rock";
+    setplayerSelection(playerSelection);
+});
+
+inputPaper.addEventListener("click", () => {
+    playerSelection = "Paper";
+    setplayerSelection(playerSelection);
+});
+
+inputScissors.addEventListener("click", () => {
+    playerSelection = "Scissors";
+    setplayerSelection(playerSelection)
+});
+
+function setplayerSelection(playerSelection) {
+    console.log("Player selected:", playerSelection)
+}
+
+
