@@ -14,30 +14,13 @@ function getComputerChoice() {
     let computerChoice= "";
     
     if (randomNumber === 1) {
-        computerChoice = "rock";
+        computerChoice = "Rock";
     } else if (randomNumber === 2) {
-        computerChoice = "paper";
+        computerChoice = "Paper";
     } else {
-        computerChoice = "scissors";
+        computerChoice = "Scissors";
     }
     return computerChoice;
-}
-
-function playRound(playerSelection, computerSelection) {
-    if ((playerSelection == "paper" && computerSelection == "scissors") ||
-    (playerSelection == "rock" && computerSelection == "paper") ||
-    (playerSelection == "scissors" && computerSelection == "rock")) {
-        
-        computerPoints++
-        return "You lose!"
-    } else if ((playerSelection == "scissors" && computerSelection == "paper") ||
-    (playerSelection == "paper" && computerSelection == "rock") ||
-    (playerSelection == "rock" && computerSelection == "scissors")) {
-        playerPoints++
-        return "You win!";
-    } else {
-        return "Its a tie!";
-    }
 }
 
 
@@ -63,21 +46,44 @@ let playerSelection = ""
 
 inputRock.addEventListener("click", () => {
     playerSelection = "Rock";
-    setplayerSelection(playerSelection);
+    playGame(playerSelection);
 });
 
 inputPaper.addEventListener("click", () => {
     playerSelection = "Paper";
-    setplayerSelection(playerSelection);
+    playGame(playerSelection);
 });
 
 inputScissors.addEventListener("click", () => {
     playerSelection = "Scissors";
-    setplayerSelection(playerSelection)
+    playGame(playerSelection)
 });
 
-function setplayerSelection(playerSelection) {
-    console.log("Player selected:", playerSelection)
+function playGame(playerSelection) {
+    const computerSelection = getComputerChoice(); // Get computer's choice
+    playRound(playerSelection, computerSelection); // Call playRound with both choices
 }
+
+function playRound(playerSelection, computerSelection) {
+    if ((playerSelection == "Paper" && computerSelection == "Scissors") ||
+    (playerSelection == "Rock" && computerSelection == "Paper") ||
+    (playerSelection == "Scissors" && computerSelection == "Rock")) {
+        
+        computerPoints++
+        //return "You lose!"
+        console.log("You lose!");
+    } else if ((playerSelection == "Scissors" && computerSelection == "Paper") ||
+    (playerSelection == "Paper" && computerSelection == "Rock") ||
+    (playerSelection == "Rock" && computerSelection == "Scissors")) {
+        //playerPoints++
+        //return "You win!";
+        console.log("You win!");
+    } else {
+        //return "Its a tie!";
+        console.log("It's a tie!");
+    }
+}
+
+ 
 
 
