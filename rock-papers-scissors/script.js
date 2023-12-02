@@ -1,11 +1,3 @@
-
-//Pseudocode:
-//SET getComputerChoice to randomly return 'Rock', 'Paper' or 'Scissors'
-//Use a random number between 1 and 3 to define getComputerChoice
-//SET playerSelection and computerSelection to set playRound
-//SET fiveRounds function to make it 5 rounds
-//SET Winner function for total score
-
 let playerPoints = 0;
 let computerPoints = 0;
 let targetPoints = 5;
@@ -29,9 +21,6 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-
-// Button selection
-
 const inputRock = document.querySelector("#rock")
 const inputPaper = document.querySelector("#paper")
 const inputScissors = document.querySelector("#scissors")
@@ -52,7 +41,7 @@ inputScissors.addEventListener("click", () => {
 });
 
 function playGame(playerSelection) {
-    computerSelection = getComputerChoice(); // Get computer's choice
+    computerSelection = getComputerChoice(); 
     fiveRounds()
     
 }
@@ -77,41 +66,39 @@ function playRound(playerSelection, computerSelection) {
         result = "Tie"
         console.log("It's a tie!");
     }
-    display(playerSelection, computerSelection, result)
+    displayRound(playerSelection, computerSelection, result)
     displayScore()
 }
 
-// Show choice
 
-let paragraph = document.createElement("p");
+let roundResult = document.createElement("p");
 
- function display(playerSelection, computerSelection, result) {
+ function displayRound(playerSelection, computerSelection, result) {
     
     if (result == "Loss") {
-        paragraph.textContent = `You lose! Your ${playerSelection.toLowerCase()}
+        roundResult.textContent = `You lose! Your ${playerSelection.toLowerCase()}
     is beaten by ${computerSelection.toLowerCase()}!`;
 
     } else if (result == "Win") {
-        paragraph.textContent = `You win! Your ${playerSelection.toLowerCase()}
+        roundResult.textContent = `You win! Your ${playerSelection.toLowerCase()}
     beats ${computerSelection.toLowerCase()}!`;
 
     } else if (result == "Tie") {
-        paragraph.textContent = `It's a tie! You both chose ${playerSelection.toLowerCase()}!`
+        roundResult.textContent = `It's a tie! You both chose ${playerSelection.toLowerCase()}!`
 
     }
 
     let choiceHeader = document.querySelector(".choice");
-    choiceHeader.appendChild(paragraph);
+    choiceHeader.appendChild(roundResult);
 } 
 
 function fiveRounds() {
-    playRound(playerSelection, computerSelection); // Play a round
+    playRound(playerSelection, computerSelection); 
 
     if (playerPoints === targetPoints || computerPoints === targetPoints) {
-        totalWinner(); // Check for the total winner
+        totalWinner(); 
     }
 }
-
 
 let showWinner = document.querySelector(".end");
 let winnerText = document.createElement("p")
@@ -119,7 +106,7 @@ let winnerText = document.createElement("p")
 const modalOverlay = document.getElementById("modalOverlay");
     const endModal = document.getElementById("endModal");
 
-  function totalWinner() {
+function totalWinner() {
 
    if (playerPoints > computerPoints) {
     winnerText.textContent = `You win at ${playerPoints} to ${computerPoints}!`;
@@ -142,7 +129,7 @@ const modalOverlay = document.getElementById("modalOverlay");
   }
 
     if (!modalOverlay.style.display || modalOverlay.style.display === "none") {
-        modalOverlay.style.display = "flex"; // Show the modal overlay
+        modalOverlay.style.display = "flex";
     }
 };
 
@@ -154,7 +141,7 @@ function replay(winnerText, replayButton) {
     playerPoints = 0; 
     playerScore.textContent = playerPoints;
     computerScore.textContent = computerPoints;
-    paragraph.textContent = "";
+    roundResult.textContent = "";
 
     let elementsInEndClass = document.querySelectorAll('.end > *');
     
