@@ -53,8 +53,8 @@ inputScissors.addEventListener("click", () => {
 
 function playGame(playerSelection) {
     computerSelection = getComputerChoice(); // Get computer's choice
-    playRound(playerSelection, computerSelection); // Call playRound with both choices
-    // displayChoice(playerSelection, computerSelection) // Call choices
+    fiveRounds()
+    
 }
 
 let result = "";
@@ -78,12 +78,15 @@ function playRound(playerSelection, computerSelection) {
         console.log("It's a tie!");
     }
     display(playerSelection, computerSelection, result)
+    displayScore()
 }
 
 // Show choice
 
+let paragraph = document.createElement("p");
+
  function display(playerSelection, computerSelection, result) {
-    let paragraph = document.createElement("p");
+    
     if (result == "Loss") {
         paragraph.textContent = `You lose! Your ${playerSelection.toLowerCase()}
     is beaten by ${computerSelection.toLowerCase()}!`;
@@ -102,33 +105,70 @@ function playRound(playerSelection, computerSelection) {
 } 
 
 function fiveRounds() {
-    if (playerPoints == targetPoints || computerPoints == targetPoints) {
-        totalWinner()
-    } else {
-        playRound(playerSelection, computerSelection);
+    playRound(playerSelection, computerSelection); // Play a round
+
+    if (playerPoints === targetPoints || computerPoints === targetPoints) {
+        totalWinner(); // Check for the total winner
     }
 }
 
- function totalWinner() {
-    let showWinner = document.querySelector("#scoreNumber")
-    let winnerText = document.createElement("p")
+
+let showWinner = document.querySelector(".end");
+let winnerText = document.createElement("p")
+
+const modalOverlay = document.getElementById("modalOverlay");
+    const endModal = document.getElementById("endModal");
+
+  function totalWinner() {
 
    if (playerPoints > computerPoints) {
-    winnerText.textContent = `You win at ${playerPoints} to ${computerPoints}!`
-    showWinner.appendChild(winnerText)
+    winnerText.textContent = `You win at ${playerPoints} to ${computerPoints}!`;
    } else if (computerPoints > playerPoints) {
-    winnerText.textContent = `You lose at ${playerPoints} to ${computerPoints}!`
-    showWinner.appendChild(winnerText)
-   } 
+    winnerText.textContent = `You lose at ${playerPoints} to ${computerPoints}!`;
+   }
 
+   if (!showWinner.contains(winnerText)) {
+    showWinner.appendChild(winnerText);
+  }
+   
+  let replayButton = document.querySelector(".replay-button");
+
+   if (!replayButton) {
+    replayButton = document.createElement("button");
+    replayButton.textContent = "Play again";
+    replayButton.classList.add("replay-button");
+    showWinner.appendChild(replayButton);
+    replayButton.addEventListener("click", replay)
+  }
+
+    if (!modalOverlay.style.display || modalOverlay.style.display === "none") {
+        modalOverlay.style.display = "flex"; // Show the modal overlay
+    }
+};
+
+    let playerScore = document.querySelector("#playerScore")
+    let computerScore = document.querySelector("#computerScore")
+
+function replay(winnerText, replayButton) {
+    computerPoints = 0;
+    playerPoints = 0; 
+    playerScore.textContent = playerPoints;
+    computerScore.textContent = computerPoints;
+    paragraph.textContent = "";
+
+    let elementsInEndClass = document.querySelectorAll('.end > *');
+    
+    elementsInEndClass.forEach(element => {
+        element.remove();
+    });
+
+    modalOverlay.style.display = "none";
 }
-
-fiveRounds()
-
 
 
 function displayScore() {
-    let scoreNumber = document.querySelector(".scoreNumber")
     
-}
+    playerScore.textContent = playerPoints;
+    computerScore.textContent = computerPoints;
+} 
 

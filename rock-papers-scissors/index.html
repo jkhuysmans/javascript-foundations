@@ -4,6 +4,10 @@
         <meta charset="UTF-8">
         <title>Rock Paper Scissors</title>
         <link rel="stylesheet" href="styles.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     </head>
 
     <body>
@@ -15,13 +19,24 @@
         <!-- <button id="begin">Click here to start</button> -->
 
         <div class="game">
-            <div class="buttonsContainer">
-                <button class="gamebuttons" id="rock">Rock</button>
-                <button class="gamebuttons" id="paper">Paper</button>
-                <button class="gamebuttons" id="scissors">Scissors</button>
+
+            <div class="rules">
+                <p>Can you beat the computer? The first to reach 5 points wins!</p>
             </div>
 
-            <div class="choice">
+            <div class="buttonsContainer">
+                <div class="button">
+                <button class="gamebuttons" id="rock"></button>
+                <p class="buttonText">Rock</p>
+            </div>
+                <div class="button">
+                <button class="gamebuttons" id="paper"></button>
+                <p class="buttonText">Paper</p>
+            </div>
+                <div class="button">
+                <button class="gamebuttons" id="scissors"></button>
+                <p class="buttonText">Scissors</p>
+            </div>
             </div>
 
             <div class="score">
@@ -29,9 +44,18 @@
                     <p class="para">Player's score:</p>
                     <p class="para">Computer's score:</p></div>
                     <div id="scoreNumber">
-                        <!-- <p class="para" id="playerScore">0</p>
-                        <p class="para" id="computerScore">0</p> -->
+                        <p class="para" id = "playerScore">0</p>
+                        <p class="para" id = "computerScore">0</p>
                     </div>
+            </div>
+
+            <div class="modal-overlay" id="modalOverlay">
+                <div class="modal" id="endModal">
+                    <div class="end"></div>
+                </div>
+            </div>
+
+            <div class="choice">
             </div>
 
             </div>
