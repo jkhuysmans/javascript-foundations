@@ -1,0 +1,14 @@
+.square {
+    border:2px solid black;
+    margin:4px;
+    padding:0;
+    width:60px;
+    height:60px;
+    box-sizing:border-box;
+}
+
+.squareContainer {
+    display:flex;
+    flex-wrap:wrap;
+    width: calc((60px + 4px) * 16);
+}
