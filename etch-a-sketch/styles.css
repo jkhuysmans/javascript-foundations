@@ -1,14 +1,21 @@
 .square {
     border:2px solid black;
-    margin:4px;
+    border-right:0;
+    border-bottom:0;
+    margin:0;
     padding:0;
-    width:60px;
-    height:60px;
+    width:32px;
+    height:32px;
     box-sizing:border-box;
 }
 
 .squareContainer {
     display:flex;
     flex-wrap:wrap;
-    width: calc((60px + 4px) * 16);
+    width: calc(32px * 16);
+    border:4px solid black;
 }
+
+/* .square:hover {
+    background-color:red;
+} */
