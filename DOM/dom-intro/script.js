@@ -34,8 +34,13 @@ container.appendChild(newContainer);
 
 const btn = document.querySelector("#btn");
 btn.addEventListener("click", () => {
-    alert("Hello World");
-});
+      alert("Hello World");
+ });
+
+const onClickBtn = document.querySelector("#onClickBtn");
+onClickBtn.onclick = function() {
+    alert(this.id);
+}
 
 // Used through a function
 
@@ -49,3 +54,29 @@ functionBtn.addEventListener("click", alertFunction)
 btn.addEventListener('click', function (e) { // function (e) is a callback
     console.log(e);
   });
+
+// How to know the node type of an element
+ console.log("The node type is", document.querySelector("div").nodeType)
+
+ //Load events
+
+ document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM is loaded");
+ });
+
+ window.onload = (event) => {
+    console.log("The page has fully loaded")
+ }
+
+ //Before unload
+
+ window.addEventListener("beforeunload", (event) => {
+    event.preventDefault();
+    event.returnValue = "hello";
+ });
+
+ 
+
+
+
+ 
