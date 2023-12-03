@@ -27,12 +27,14 @@ changeButton.addEventListener("click", changeSquares)
 
 function changeSquares() {
     container.innerHTML = "";
-    
+
     let squarePrompt = prompt("Insert the number of squares per side you want");
+
+    if (squarePrompt > 100) {
+        squarePrompt = prompt("Error: please enter a number under 100.")
+    }
     squareSide = parseInt(squarePrompt);
     console.log(squarePrompt)
-
-
     
     addSquares(squareSide);
 }
