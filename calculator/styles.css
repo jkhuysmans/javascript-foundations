@@ -1,0 +1,50 @@
+.allbuttonscontainer {
+    display:flex;
+}
+
+.numberbuttons,
+.operatorsbuttons {
+    width:80px;
+    height:80px;
+    margin:24px;
+    padding:0;
+    /* border:1px solid black; */
+    background-color:white;
+    font-size:32px;
+    border-radius:100%;
+}
+
+button {
+    border:0;
+}
+button:hover {
+    filter: brightness(90%);
+}
+
+.numberscontainer {
+    display:flex;
+    flex-wrap:wrap;
+    width: calc(128px * 3);
+    height: calc(128px * 4);
+    /* border:2px solid black; */
+    
+}
+
+
+.operators {
+    display:flex;
+    flex-wrap:wrap;
+    width:128px;
+    height: calc(128px * 4);
+    /* border:2px solid black; */
+    border-left:0;
+}
+
+.operatorsbuttons {
+    color:orange;
+}
+
+#equal {
+    color:white;
+    background-color:orange;
+}

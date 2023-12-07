@@ -35,5 +35,5 @@
 }
 
 .changebutton:hover {
-    background-color:90%;
+    filter: brightness(90%);
 }
