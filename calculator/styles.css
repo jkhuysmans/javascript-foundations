@@ -5,7 +5,7 @@
 }
 
 .prompt {
-    width: calc(100px * 4);
+    width: calc(80px * 4);
     height: 100px;
     display:flex;
     flex-direction:column;
@@ -27,20 +27,22 @@
 
 .allbuttonscontainer {
     display:flex;
-    border-top:1px solid grey;
-    margin-top:12px;
 }
 
 .numberbuttons,
 .operatorsbuttons {
-    width:60px;
-    height:60px;
+    width:40px;
+    height:40px;
     margin:20px;
     padding:0;
     /* border:1px solid black; */
     background-color:white;
     font-size:32px;
     border-radius:100%;
+}
+
+.blank {
+
 }
 
 button {
@@ -53,17 +55,17 @@ button:hover {
 .numberscontainer {
     display:flex;
     flex-wrap:wrap;
-    width: calc(100px * 3);
-    height: calc(100px * 4);
+    width: calc(80px * 3);
+    height: calc(80px * 4);
     /* border:2px solid black; */
 }
 
 
-.operators {
+.operatorsside {
     display:flex;
     flex-wrap:wrap;
     width:100px;
-    height: calc(100px * 4);
+    height: calc(80px * 4);
     /* border:2px solid black; */
     border-left:0;
 }
@@ -75,4 +77,9 @@ button:hover {
 #equal {
     color:white;
     background-color:orange;
+}
+
+.blank {
+    width: calc(80px * 3);
+    height: calc(80px * 1);
 }
