@@ -1,10 +1,13 @@
 const numberButtons = document.querySelectorAll('.numberbuttons');
+const display = document.querySelector('#result')
+const pastOperation = document.querySelector('#input')
+let numberA = '';
 
 numberButtons.forEach(button => {
   button.addEventListener('click', () => {
     const buttonText = parseInt(button.textContent);
-    a = buttonText;
-    console.log(buttonText)
+    numberA += buttonText;
+    display.textContent = numberA;
   });
 });
 
