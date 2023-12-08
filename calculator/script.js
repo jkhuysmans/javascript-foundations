@@ -8,6 +8,16 @@ numberButtons.forEach(button => {
   });
 });
 
+const operatorButton = document.querySelectorAll('.operatorsbuttons');
+
+operatorButton.forEach(button => {
+  button.addEventListener('click', () => {
+    const buttonText = button.textContent;
+    operator = buttonText;
+    console.log(buttonText)
+  });
+});
+
 
 
 let a = 0;
