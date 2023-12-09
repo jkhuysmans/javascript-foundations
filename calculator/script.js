@@ -33,6 +33,12 @@ operatorButton.forEach(button => {
         operator = buttonText;
         display.textContent = displayA + operator;
         isFirstOperand = false;
+      } else if (isFirstOperand === false) {
+        operate();
+
+        operator = buttonText;
+        display.textContent = displayA + operator;
+        isFirstOperand = false;
       }
   });
 });
