@@ -1,6 +1,6 @@
 const numberButtons = document.querySelectorAll('.numberbuttons');
-const display = document.querySelector('#result');
-const pastOperation = document.querySelector('#input');
+let display = document.querySelector('#result');
+let pastOperation = document.querySelector('#input');
 let a = 0;
 let displayA = "";
 let operator = "";
@@ -33,28 +33,50 @@ operatorButton.forEach(button => {
     if (isFirstOperand) {
       operator = buttonText;
       display.textContent = displayA + operator;
-      isFirstOperand = false; // Switch to inputting the second operand
+      isFirstOperand = false;
     }
+
+    if (buttonText == "=") {
+        console.log("hey")
+        operate()
+      }
   });
 });
 
+let result = "";
+
 function add() {
-    console.log(a + b);
+    display.textContent = "";
+    result = (a + b);
 }
 
 function substract() {
-    console.log(a - b);
+    display.textContent = "";
+    result = (a - b);
 }
 
 function multiply() {
-    console.log(a * b);
+    display.textContent = "";
+    result = (a * b);
 }
 
 function divide() {
-    console.log(a / b);
+    display.textContent = "";
+    result = (a / b);
 }
 
 function operate() {
+    if (operator == "+") {add()} else
+    if (operator == "-") {substract()} else 
+    if (operator == "x") {multiply()} else
+    if (operator == "/") {divide()}
 
-}
+    a = result;
+    b = 0;
+    displayB = "";
+    operator = "";
+    displayA = result.toString();
+    display.textContent = displayA;
+    isFirstOperand = true;
+    }
 
