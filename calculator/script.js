@@ -109,7 +109,7 @@ function multiply() {
 
 function divide() {
     display.textContent = "";
-    result = (a / b);
+    result = (a / b); 
 }
 
 function operate() {
@@ -119,7 +119,25 @@ function operate() {
     if (operator == "+") {add()} else
     if (operator == "-") {substract()} else 
     if (operator == "x") {multiply()} else
-    if (operator == "/") {divide()}
+    if (operator == "/") { 
+        if (a === 0 || b === 0) {
+            display.textContent = "Cannot divide by 0!";
+            setTimeout(() => {
+                display.textContent = "0";
+            }, 1000);
+            
+            pastOperation.textContent = "";
+            a = 0;
+            b = 0;
+            displayA = "";
+            displayB = "";
+            operator = "";
+            isFirstOperand = true;
+            return;
+        } else {
+            divide();
+        }
+    }
 
     a = result;
     b = 0;
