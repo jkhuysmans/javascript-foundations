@@ -50,7 +50,22 @@ eraseButton.forEach(button => {
     button.addEventListener('click', () => { 
           console.log("erase")
 
+          if (operator !== "" && displayB !== "") {
+            displayB = displayB.slice(0, -1);
+            b = parseInt(displayB) || 0;
 
+            display.textContent = displayA + operator + displayB;
+
+          } else if (operator !== "") {
+            operator = operator.slice(0, -1);
+            display.textContent = displayA + operator;
+            isFirstOperand = true;
+
+          } else if (displayA !== "") {
+            displayA = displayA.slice(0, -1);
+            a = parseInt(displayA) || 0;
+            display.textContent = displayA;
+          };
     });
   });
 
