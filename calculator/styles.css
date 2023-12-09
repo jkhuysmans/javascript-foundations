@@ -51,7 +51,10 @@ body {
 }
 
 .numberbuttons,
-.operatorsbuttons {
+.operatorsbuttons,
+.equalbutton,
+.erasebutton,
+.eraseall {
     width:60px;
     height:60px;
     margin:10px;

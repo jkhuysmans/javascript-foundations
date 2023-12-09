@@ -29,19 +29,51 @@ const operatorButton = document.querySelectorAll('.operatorsbuttons');
 operatorButton.forEach(button => {
   button.addEventListener('click', () => {
     const buttonText = button.textContent;
-    
     if (isFirstOperand) {
-      operator = buttonText;
-      display.textContent = displayA + operator;
-      isFirstOperand = false;
-    }
-
-    if (buttonText == "=") {
-        console.log("hey")
-        operate()
+        operator = buttonText;
+        display.textContent = displayA + operator;
+        isFirstOperand = false;
       }
   });
 });
+
+const equalButton = document.querySelectorAll('.equalbutton');
+equalButton.forEach(button => {
+    button.addEventListener('click', () => { 
+          console.log("result")
+          operate()   
+    });
+  });
+
+  const eraseButton = document.querySelectorAll('.erasebutton');
+eraseButton.forEach(button => {
+    button.addEventListener('click', () => { 
+          console.log("erase")
+
+
+    });
+  });
+
+  const eraseAll = document.querySelectorAll('.eraseall');
+eraseAll.forEach(button => {
+    button.addEventListener('click', () => { 
+          console.log("erase all")
+
+          pastOperation.textContent = "";
+
+          a = 0;
+          b = 0;
+          displayB = "";
+          operator = "";
+          displayA = a;
+          display.textContent = displayA;
+          isFirstOperand = true;
+    });
+  });
+
+
+
+
 
 let result = "";
 
@@ -66,6 +98,9 @@ function divide() {
 }
 
 function operate() {
+
+    pastOperation.textContent = displayA + operator + displayB; 
+
     if (operator == "+") {add()} else
     if (operator == "-") {substract()} else 
     if (operator == "x") {multiply()} else
