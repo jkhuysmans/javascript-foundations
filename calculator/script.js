@@ -149,8 +149,8 @@ function operate() {
     b = 0;
     displayB = "";
     operator = "";
+    result = parseFloat(result.toFixed(10));
     displayA = result.toString();
     display.textContent = displayA;
     isFirstOperand = true;
     }
-
